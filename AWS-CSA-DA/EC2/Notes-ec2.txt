@@ -1,0 +1,59 @@
+1] You can start your AMI on any number of On-Demand instances by using the RunInstances API call
+
+2] You simply need to indicate how many instances you wish to launch. If you wish to run more than 20 On-Demand instances, complete the Amazon EC2 instance request form
+
+3] You can check on the status of your instances using the DescribeInstances API call
+
+4] You can also programmatically terminate any number of your instances using the TerminateInstances API call
+
+5] You can also use the StopInstances API call to release the compute resources but preserve the data on the boot partition
+
+6] You can use the StartInstances API when you are ready to restart the associated instance with the Amazon EBS boot partition.
+
+7] By using Amazon EBS, data on the root device will persist independently from the lifetime of the instance.
+
+8] the local instance store only persists during the life of the instance, some customers use this option to run large web sites where each instance is a clone to handle web traffic.
+
+9] You are limited to running up to a total of 20 On-Demand instances across the instance family, purchasing 20 Reserved Instances, and requesting Spot Instances per your dynamic Spot limit per region.New AWS accounts may start with limits that are lower than the limits described here. Certain instance types are further limited per region as follows
+
+10] Amazon EC2 enables you to increase or decrease capacity within minutes, not hours or days.
+
+11] In our experience, ECC memory is necessary for server infrastructure, and all the hardware underlying Amazon EC2 uses ECC ( error correcting code) memory.
+
+12] By default, all accounts are limited to 5 Elastic IP addresses per region
+
+13] You do not need an Elastic IP address for all your instances. By default, every instance comes with a private IP address and an internet routable public IP address
+
+14] In order to help ensure our customers are efficiently using the Elastic IP addresses, we impose a small hourly charge for each address when it is not associated to a running instance
+
+15] The Nitro Hypervisor provides consistent performance and increased compute and memory resources for EC2 virtualized instances by removing host system software components. Eventually all new instance types will use the Nitro Hypervisor, but in the near term, some new instance types will use Xen depending on the requirements of the platform.
+
+16] For example, the “hypervisor” field of the DescribeInstances response, which will continue to report “xen” for all EC2 instances, even those running under the Nitro Hypervisor. This field may be removed in a future revision of the EC2 API
+
+17] Amazon EBS provides four current generation volume types and are divided into two major categories: SSD-backed storage for transactional workloads and HDD-backed storage for throughput intensive workloads.
+
+18] snapshots can be done in real time while the volume is attached and in use. However, snapshots only capture data that has been written to your Amazon EBS volume, which might exclude any data that has been locally cached by your application or OS.In order to ensure consistent snapshots on volumes attached to an instance, we recommend cleanly detaching the volume, issuing the snapshot command, and then reattaching the volume.
+
+19] Each snapshot is given a unique identifier, and customers can create volumes based on any of their existing snapshots.
+
+20] You can find snapshots that have been shared with you by selecting “Private Snapshots” from the viewing dropdown in the Snapshots section of the AWS Management Console. 
+
+21] You can find snapshots that have been shared globally by selecting “Public Snapshots” from the viewing dropdown in the Snapshots section of the AWS Management Console.
+
+22] Amazon EFS supports one to thousands of Amazon EC2 instances connecting to a file system concurrently.Amazon EFS is compatible with all Amazon EC2 instance types and is accessible from Linux-based AMIs. Amazon EFS uses the NFSv4.1 protocol.
+
+23] Cloud watch Metrics are received and aggregated at 1 minute intervals.
+
+24] You can retrieve metrics data for any Amazon EC2 instance up to 2 weeks from the time you started to monitor it. After 2 weeks, metrics data for an Amazon EC2 instance will not be available if monitoring was disabled for that Amazon EC2 instance. If you want to archive metrics beyond 2 weeks you can do so by calling mon-get-stats command from the command line and storing the results in Amazon S3 or Amazon SimpleDB.
+
+25] Amazon CloudWatch stores metrics for terminated Amazon EC2 instances or deleted Elastic Load Balancers for 2 weeks. Amazon CloudWatch monitoring charge does not vary by Amazon EC2 instance type
+
+26] Standard RIs offer a significant discount on EC2 instance usage when you commit to a particular instance family. Convertible RIs offer you the option to change your instance configuration during the term, and still receive a discount on your EC2 usage
+
+27] You can determine the status of your Spot request via Spot Request Status code and message. You can access Spot Request Status information on the Spot Instance page of the EC2 console of the AWS Management Console, API and CLI. 
+
+28] You can choose to have your Spot instances terminated, stopped or hibernated upon interruption. Stop and hibernate options are available for persistent Spot requests and Spot Fleets with the “maintain” option enabled. By default, your instances are terminated.
+
+29] The RequestSpotFleet API provides two allocation strategies: lowestPrice and diversified. The lowestPrice strategy allows you to provision your Spot Fleet resources in instance pools that provide the lowest price per unit of capacity at the time of the request. The diversified strategy allows you to provision your Spot Fleet resources across multiple Spot instance pools.
+
+30] 
